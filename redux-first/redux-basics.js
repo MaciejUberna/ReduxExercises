@@ -2,11 +2,23 @@ const redux = require('redux');
 const createStore = redux.createStore;
 
 const initialSatte = {
-    couter: 0
+    counter: 0
 };
 
 //Reducer
 const rootReducer = (state = initialSatte, action) => {
+    if(action.type === 'INC_COUNTER') {
+        return{
+            ...state,
+            counter: state.counter + 1
+        }
+    }
+    if(action.type === 'ADD_COUNTER') {
+        return{
+            ...state,
+            counter: state.counter + action.value
+        }
+    }
     return state;
 };
 
