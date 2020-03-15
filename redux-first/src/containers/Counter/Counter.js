@@ -34,13 +34,25 @@ const Counter = props => (
                 label={controls[key].label}
                 clicked={props.onModifyCounter.bind(this,controls[key].action, controls[key].value)} />
         ))}
+        <hr />
+        <button onClick={props.onStoreResult}>Store result</button>
+        <ul>
+            {props.storedResults.map(result => (
+                <li onClick={props.onDeleteResult} key={result.id}>{result.value}</li>
+            ))}
+        </ul>
     </div>
 );
  
-const mapStateToProps = state => ({ ctr: state.counter });
+const mapStateToProps = state => ({ 
+    ctr: state.counter,
+    storedResults: state.results
+});
  
 const mapDispatchToProps = dispatch => ({
-    onModifyCounter: (type, value) => dispatch({ type, value })
+    onModifyCounter: (type, value) => dispatch({ type, value }),
+    onStoreResult: () => dispatch({type: 'STORE_RESULT'}),
+    onDeleteResult: () => dispatch({type: 'DELETE_RESULT'})
 });
  
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
