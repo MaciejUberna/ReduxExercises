@@ -4,23 +4,29 @@ import { connect } from 'react-redux';
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
 
+import * as actionTypes from '../../Store/actions';
+
+const toPascal = (str) => {
+    return str.replace(/\w+/g,(w)=>w[0].toUpperCase()+w.slice(1).toLowerCase());
+}
+
 const controls = {
     inc: {
-        label: 'Increment',
-        action: 'INCREMENT',
+        label: toPascal(actionTypes.INCREMENT),
+        action: actionTypes.INCREMENT,
     },
     dec: {
-        label: 'Decrement',
-        action: 'DECREMENT',
+        label: toPascal(actionTypes.DECREMENT),
+        action: actionTypes.DECREMENT,
     },
     add: {
-        label: 'Add 5',
-        action: 'ADD',
+        label: toPascal(actionTypes.ADD)+' 5',
+        action: actionTypes.ADD,
         value: 5,
     },
     sub: {
-        label: 'Subtract 5',
-        action: 'SUBTRACT',
+        label: toPascal(actionTypes.SUBTRACT)+' 5',
+        action: actionTypes.SUBTRACT,
         value: 5,
     }
 }
@@ -51,8 +57,8 @@ const mapStateToProps = state => ({
  
 const mapDispatchToProps = dispatch => ({
     onModifyCounter: (type, value) => dispatch({ type, value }),
-    onStoreResult: () => dispatch({type: 'STORE_RESULT'}),
-    onDeleteResult: (elementId) => dispatch({type: 'DELETE_RESULT',resultElementId: elementId})
+    onStoreResult: () => dispatch({type: actionTypes.STORE_RESULT}),
+    onDeleteResult: (elementId) => dispatch({type: actionTypes.DELETE_RESULT,resultElementId: elementId})
 });
  
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
