@@ -41,7 +41,7 @@ const Counter = props => (
                 clicked={props.onModifyCounter.bind(this,controls[key].action, controls[key].value)} />
         ))}
         <hr />
-        <button onClick={props.onStoreResult}>Store result</button>
+        <button onClick={props.onStoreResult.bind(this,props.ctr)}>Store result</button>
         <ul>
             {props.storedResults.map(result => (
                 <li onClick={props.onDeleteResult.bind(this,result.id)} key={result.id}>{result.value}</li>
@@ -51,13 +51,13 @@ const Counter = props => (
 );
  
 const mapStateToProps = state => ({ 
-    ctr: state.counter,
-    storedResults: state.results
+    ctr: state.ctr.counter,
+    storedResults: state.res.results
 });
  
 const mapDispatchToProps = dispatch => ({
     onModifyCounter: (type, value) => dispatch({ type, value }),
-    onStoreResult: () => dispatch({type: actionTypes.STORE_RESULT}),
+    onStoreResult: (result) => dispatch({type: actionTypes.STORE_RESULT, result: result}),
     onDeleteResult: (elementId) => dispatch({type: actionTypes.DELETE_RESULT,resultElementId: elementId})
 });
  
