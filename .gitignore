@@ -1,5 +1,6 @@
 # Don't track content of these folders
 /redux-first/node_modules/
+/assignment2/node_modules/
 
 
 # Compiled source #
