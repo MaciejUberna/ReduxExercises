@@ -11,7 +11,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.ADD_PERSON:
             return {
                 ...state,
-                persons: action.newPerson.concat(state.persons),
+                persons: [action.newPerson].concat(state.persons),
                 counter: state.counter + 1
             };
         case actionTypes.DEL_PERSON:
