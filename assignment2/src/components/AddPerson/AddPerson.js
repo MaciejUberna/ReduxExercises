@@ -31,7 +31,7 @@ class AddPerson extends Component {
                     onChange={this.ageChangedHandler}
                     value={this.state.age}
                 />
-                <button onClick={this.props.personAdded.bind(this,this.state)}>Add Person</button>
+                <button onClick={this.props.personAdded.bind(this,this.state.name,this.state.age)}>Add Person</button>
             </div>
         );
     }

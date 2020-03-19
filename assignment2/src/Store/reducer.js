@@ -5,11 +5,11 @@ const initialState = {
     counter: 0
 }
 
-const constructPerson = (state,id) => {
+const constructPerson = (personData,id) => {
     const newPerson = {
         id: id,
-        name: state.name,
-        age: state.age
+        name: personData.name,
+        age: personData.age
     }
 
     return newPerson;
@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.ADD_PERSON:
             return {
                 ...state,
-                persons: [constructPerson(action.state,state.counter)].concat(state.persons),
+                persons: [constructPerson(action.personData,state.counter)].concat(state.persons),
                 counter: state.counter + 1
             };
         case actionTypes.DEL_PERSON:
