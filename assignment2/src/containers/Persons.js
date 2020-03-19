@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import * as actionTypes from '../Store/actions';
@@ -40,7 +40,7 @@ const personAdd = (personId) => {
 }
 
 const Persons = (props) => {
-
+        //console.log('Pesrons: ',props.persons)
         return (
             <div>
                 <AddPerson personAdded={props.onPersonAdd.bind(this,personAdd(props.counter))} />
