@@ -29,21 +29,11 @@ const names =
         'Paździoch'
     ];
 
-const personAdd = (personId) => {
-    const newPerson = {
-        id: personId,
-        name: names[Math.floor(Math.random()*names.length)],
-        age: Math.ceil( Math.random() * 40 )
-    }
-
-    return newPerson;
-}
-
 const Persons = (props) => {
         //console.log('Pesrons: ',props.persons)
         return (
             <div>
-                <AddPerson personAdded={props.onPersonAdd.bind(this,personAdd(props.counter))} />
+                <AddPerson personAdded={props.onPersonAdd} />
                 {props.persons.map(person => (
                     <Person 
                         key={person.id}
@@ -62,7 +52,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    onPersonAdd: (personObj) => dispatch({type: actionTypes.ADD_PERSON,newPerson: personObj}),
+    onPersonAdd: (state) => dispatch({type: actionTypes.ADD_PERSON,state: state}),
     onPersonDel: (id) => dispatch({type: actionTypes.DEL_PERSON,id: id})
 });
 
