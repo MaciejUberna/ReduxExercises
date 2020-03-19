@@ -5,30 +5,6 @@ import * as actionTypes from '../Store/actions';
 import Person from '../components/Person/Person';
 import AddPerson from '../components/AddPerson/AddPerson';
 
-const names =
-    [
-        'Max',
-        'Maciek',
-        'Marek',
-        'Ollin',
-        'Rysiek',
-        'Ola',
-        'Monika',
-        'Anna',
-        'Kasia',
-        'Zeus',
-        'Ares',
-        'Apollo',
-        'Poseidon',
-        'Atena',
-        'Łukasz',
-        'Daniel',
-        'Aleksandra',
-        'Solidariusz',
-        'Irena',
-        'Paździoch'
-    ];
-
 const Persons = (props) => {
         //console.log('Pesrons: ',props.persons)
         return (
