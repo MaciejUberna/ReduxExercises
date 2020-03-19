@@ -7,6 +7,10 @@ Folder containing the project is:
 
 redux-first
 
+or
+
+assigment2
+
 ## Introduction
 
 Study how to handle states with Redux. 
@@ -18,7 +22,7 @@ The purpose of this project is to evaluate different state handling solutions in
 ## Deployment
 
 Install node.js on your machine
-Go to redux-first folder and type in console (without quotes):
+Go to redux-first or assigment2 folder and type in console (without quotes):
 "npm install"
 
 then type:
