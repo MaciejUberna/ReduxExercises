@@ -5,7 +5,7 @@ import * as actionTypes from '../Store/actions';
 import Person from '../components/Person/Person';
 import AddPerson from '../components/AddPerson/AddPerson';
 
-const persons =
+const names =
     [
         'Max',
         'Maciek',
@@ -32,7 +32,7 @@ const persons =
 const personAdd = (personId) => {
     const newPerson = {
         id: personId,
-        name: persons[Math.floor(Math.random()*20)],
+        name: names[Math.floor(Math.random()*names.length)],
         age: Math.ceil( Math.random() * 40 )
     }
 
